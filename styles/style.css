@@ -1,3 +1,32 @@
-.search-stc {
+.search-sct {
     position: fixed;
+    padding: 5px 5px 5px 5px;
+}
+
+.search-sct textarea {
+    width: 240px;
+    height: 30px;
+    resize: none;
+}
+
+.search-sct button {
+    width: 240px;
+    height: 30px;
+}
+
+#search-btn {
+    background-color: lightblue;
+}
+
+.search-sct ul {
+    margin: 10px 2px 2px 2px;
+    padding: 0;
+    padding-top: 5px;
+
+    border-top: 1px solid black;
+}
+
+.search-sct li {
+    margin: 2px 2px 2px 2px;
+    list-style-type: none;
 }
