@@ -3,7 +3,7 @@ let param_lon = -94.04;
 let date = moment().format("M/D/YYYY");
 let citySearched = 'London'
 const WEATHER_API = `https://api.openweathermap.org/data/2.5/onecall?lat=${param_lat}&lon=${param_lon}&units=imperial&appid=${API_KEY_WEATHER}`;
-const GEO_API = `http://api.openweathermap.org/geo/1.0/direct?q=${citySearched}&limit=5&appid=${API_KEY_WEATHER}`
+const GEO_API = `https://api.openweathermap.org/geo/1.0/direct?q=${citySearched}&limit=5&appid=${API_KEY_WEATHER}`
 
 //Call local storage to build previous search list
 
@@ -91,7 +91,7 @@ function build_futureCall(lat, lon){
 }
 // function to build url call to api that finds a city's lat and long
 function build_APICityCall(searchedCity) {
-    let api_url = `http://api.openweathermap.org/geo/1.0/direct?q=${searchedCity}&limit=5&appid=${API_KEY_WEATHER}`;
+    let api_url = `https://api.openweathermap.org/geo/1.0/direct?q=${searchedCity}&limit=5&appid=${API_KEY_WEATHER}`;
 
     return api_url;
 }
