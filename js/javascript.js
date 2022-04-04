@@ -1,6 +1,6 @@
 let param_lat = 33.44;
 let param_lon = -94.04;
-// let latLong;
+let date = moment().format("M/D/YYYY");
 let citySearched = 'London'
 const WEATHER_API = `https://api.openweathermap.org/data/2.5/onecall?lat=${param_lat}&lon=${param_lon}&units=imperial&appid=${API_KEY_WEATHER}`;
 const GEO_API = `http://api.openweathermap.org/geo/1.0/direct?q=${citySearched}&limit=5&appid=${API_KEY_WEATHER}`
@@ -51,6 +51,32 @@ function getLatLongByCity(searchedCity) {
 
 function buildPage(weather_obj){
     console.log(weather_obj);
+
+    setCurrent(weather_obj);
+    // setForecast(weather_obj);
+}
+
+//sets page to display current weather for searched city
+function setCurrent(weather_obj) {
+    $('#current-weather-city').text($('textarea').val(), date);
+    $('#current-temp').text(`Temp: ${weather_obj.current.temp}\xB0`);
+    $('#current-wind').text(`Wind: ${weather_obj.current.wind_speed} MPH`);
+    $('#current-humidity').text(`Humidity: ${weather_obj.current.humidity} %`);
+    $('#current-uv').text(`UV Index: ${weather_obj.current.uvi}`);
+}
+
+function setForecast(weather_obj) {
+    let $forecastList = $('#forecast-list');
+
+    for(var i = 0; i < 5; i++){
+        $li = $('<li>');
+
+        $card = $('<article>');
+        $h3 = $('<h3>Date</h3>');
+        $card.append($h3);
+
+        $p1 = $('<p>Temp: ' + weather_obj);
+    }
 }
 
 // function to build the api call into a string
@@ -58,6 +84,10 @@ function build_APICall(lat, lon) {
     let api_call = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&appid=${API_KEY_WEATHER}`;
 
     return api_call;
+}
+
+function build_futureCall(lat, lon){
+    let api_call;
 }
 // function to build url call to api that finds a city's lat and long
 function build_APICityCall(searchedCity) {
